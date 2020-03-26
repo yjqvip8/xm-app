@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +9,15 @@ import { Observable } from 'rxjs';
 
 export class TestService {
 
-  constructor() {}
-  getMsg():Observable<good>{
-    let msg = "is msg";
-    return Object(msg)
+  constructor(private http:HttpClient) {}
+  getWeather():any{
+    return this.http.get("http://wthrcdn.etouch.cn/weather_mini?city=上海");
   }
+  msg:string = "hello world !";
 }
 
-export interface good {
-  msg : string
-}
+/*
+  export interface good {
+    msg : string
+  }
+*/
