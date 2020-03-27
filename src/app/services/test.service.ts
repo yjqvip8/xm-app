@@ -16,8 +16,6 @@ export class TestService {
   msg:string = "hello world !";
 }
 
-/*
-  export interface good {
-    msg : string
-  }
-*/
+export interface Msg {
+  msg:string;
+}

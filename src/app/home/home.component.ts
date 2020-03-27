@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestService } from "../services/test.service"
+import { TestService, Msg } from "../services/test.service"
 
 
 @Component({
@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
   constructor(private testService:TestService) {}
   weatherByNow:string;
   ngOnInit() {
+    let msg:Msg = { msg: "this is a msg"};
+    console.log(msg);
+    console.log(this.testService.msg)
     this.testService.getWeather().subscribe(res=>{
       if(res.desc == "OK"){
         let data = res.data.forecast[0];
